@@ -1,3 +1,0 @@
-More testing
-
-THIS IS A TEST
