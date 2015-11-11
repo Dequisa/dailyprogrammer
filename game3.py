@@ -1,5 +1,3 @@
-
-
 pope_catholic = True
 
 def mkstartingnum():
