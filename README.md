@@ -2,6 +2,7 @@
 
 | Challenge Number | Description | Solution |
 |---|---|---|
+|[Challenge 235 [easy]](https://www.reddit.com/r/dailyprogrammer/comments/3nkanm/20151005_challenge_235_easy_ruthaaron_pairs)|In mathematics, a Ruth–Aaron pair consists of two consecutive integers (e.g. 714 and 715) for which the sums of the distinct prime factors of each integer are equal. Your task today is to determine if a pair of numbers is indeed a valid Ruth-Aaron pair.| [ruthaaron.py](/ruthaaron.py) |
 |[Challenge 236 [easy]](https://www.reddit.com/r/dailyprogrammer/comments/3ofsyb/20151012_challenge_236_easy_random_bag_system/|Contrary to popular belief, the tetromino pieces you are given in a game of Tetris are not randomly selected. Instead, all seven pieces are placed into a "bag." A piece is randomly removed from the bag and presented to the player until the bag is empty. When the bag is empty, it is refilled and the process is repeated for any additional pieces that are needed.
 In this way, it is assured that the player will never go too long without seeing a particular piece. It is possible for the player to receive two identical pieces in a row, but never three or more. Your task for today is to implement this system.|[tetrispieces.py](tetrispieces.py)|
 |[Challenge 237 [easy]](https://www.reddit.com/r/dailyprogrammer/comments/3pcb3i/20151019_challenge_237_easy_broken_keyboard/) | Help! My keyboard is broken, only a few keys work any more. If I tell you what keys work, can you tell me the biggest word I can write?| [broken_keyboard.py](/broken_keyboard.py)|
