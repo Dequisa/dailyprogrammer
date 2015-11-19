@@ -1,0 +1,18 @@
+input_text = open("/Users/benstone/Desktop/dailyprogrammer/ruthaaroninput.txt")
+primes_file = open("/Users/benstone/Desktop/dailyprogrammer/primes_list.txt")
+primes = map(int, primes_file.read().split(", "))
+pair_number = int(input_text.readline())
+
+def primefactors(int):
+    uniqueprimefactors = []
+    for checkprime in primes:
+        if int%checkprime == 0:
+            uniqueprimefactors.append(checkprime)
+    return uniqueprimefactors
+
+print pair_number
+
+for x in range(0, pair_number):
+    
+    printint(s) for s in str.split() if s.isdigit() ''.join(char for char in input_text.readline() if char.isdigit() or char == ',')
+        
