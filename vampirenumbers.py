@@ -1,6 +1,11 @@
 digits = input("How many digits would you like in the number?: ")
+<<<<<<< Updated upstream
 fangs_num = input("How many fangs would you like to have?: ")
 vampire_list = []
+=======
+#fangs_num = input("How many fangs would you like to have?: ")
+cool_list = []
+>>>>>>> Stashed changes
 
 def twodigitfactors(num):
     factors_list = []
@@ -9,7 +14,14 @@ def twodigitfactors(num):
             factors_list.append(x)        
     return factors_list
 
+for x in range(10**(digits-1),10**digits):
+    for number in twodigitfactors(x):
+        if str(number).issubset(str(twodigitfactors(x))):
 
+
+
+
+<<<<<<< Updated upstream
 for x in range (10**(digits-1), 10**digits):
     okfactors = []
     is_duplicate = False
@@ -33,3 +45,5 @@ for x in range (10**(digits-1), 10**digits):
 
 print(vampire_list)
                 
+=======
+>>>>>>> Stashed changes
