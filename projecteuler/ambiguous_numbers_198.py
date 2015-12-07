@@ -46,7 +46,7 @@ def check_ambiguity(numerator, denominator):
                     break
     return False
 
-for q in range(500, 800):
+for q in range(100, 10000000):
     p = 1
     while p/q < 1/100:
         for d in range(1, q):

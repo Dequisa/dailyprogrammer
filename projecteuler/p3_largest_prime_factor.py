@@ -1,6 +1,6 @@
 primes = []
+prime_factors = []
 
-#for x in range(2,600851475143):
 for x in range(2, 100000):
     isPrime = True
     for y in range(2, x):
@@ -9,10 +9,16 @@ for x in range(2, 100000):
     if isPrime:
         primes.append(x)
 
-#def largest_prime(n):
-#    for x in primes:
-#        if n%x == 0 and n=x
+def primefactors(n):
+    for prime in primes:
+        print ("Looking at %d") %(prime)
+        if n%prime == 0:
+            prime_factors.append(prime)
+            n = n/prime
+    return prime_factors
 
-print primes
 
-#600851475143
+print primefactors(600851475143)
+
+
+
