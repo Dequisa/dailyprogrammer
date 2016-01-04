@@ -1,0 +1,42 @@
+2
+
+How many nodes high is the grid?: 3
+6
+
+How many nodes high is the grid?: 4
+20
+
+How many nodes high is the grid?: 5
+70
+
+How many nodes high is the grid?: 6
+252
+
+How many nodes high is the grid?: 7
+924
+
+How many nodes high is the grid?: 8
+3432
+
+How many nodes high is the grid?: 9
+12870
+
+How many nodes high is the grid?: 10
+48620
+
+
+
+f(1) = 1!
+f(2) = 2!
+f(3) = 3! - 3(0)
+f(4) = 4! - 4(1)
+f(5) = 5! - 5^2(2)
+f(6) = 6! - 6^2(13)
+f(7) = 7! - 7^2(84)
+f(8) = 8! - 8^2(4611)
+f(9) = 9! - 9^2(38890)
+f(10) = 10! - 10^2(358018)
+ 
+f(20) = ?
+
+
