@@ -34,4 +34,3 @@ for x in range(1,1000):
     total += getSize(x)
 
 print total
-
