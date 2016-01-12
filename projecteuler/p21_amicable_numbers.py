@@ -8,35 +8,67 @@ For example, the proper divisors of 220 are 1, 2, 4, 5, 10, 11, 20, 22, 44, 55 a
 Evaluate the sum of all the amicable numbers under 10000.
 """
 
-primes = []
+import numpy
 
-def sumOfDivisors(n):
-    return sum([x for x in range(1,(n/2) + 1) if n%x==0])
+amicableList = []
 
-def isAmicable(a,b):
-    return sumOfDivisors(a) == b and sumOfDivisors(b) == a and a != b
+def sumAllDivisors(n):
+    list = []
+    for possibleDivisor in range(1, int(n**.5) + 1):
+        if n%possibleDivisor == 0:
+            list.append(possibleDivisor)
+            if possibleDivisor != n/possibleDivisor and n/possibleDivisor != n:
+                list.append(n/possibleDivisor)
+    return sum(list)
+
+for a in range(0,10000):
+    b = sumAllDivisors(a)
+    if sumAllDivisors(b) == a and a != b:
+        amicableList.append(a)
+
+print amicableList
+print sum(amicableList)
+
+                      
+
+"""
 
 def primeFactorization(n):
-    array = []
+    array = [1]
     while n>1:
         for prime in primes:
-            while n%prime:
+            while n%prime == 0:
               array.append(prime)
+              n = n/prime              
+    return array
               
+def getAllFactors(primesList):
+    list = []
+    for x in range(1,len(primesList)):
+        for combination in itertools.combinations(primesList,x):
+            if (reduce(lambda a,b:a*b, combination)) not in list:
+                list.append(reduce(lambda a,b:a*b, combination))
+    return list
 
-print sum(amicableNumberTuple[0] for amicableNumberTuple in [(x,y) for x in range(1,10000) for y in range(1,10000) if isAmicable(x,y)]   )
+def sumOfDivisors(n):
+    #return sum([x for x in range(1,(n/2) + 1) if n%x==0])
+    return sum(getAllFactors(primeFactorization(n)))
 
-#amicableList = []
 
-#for x in range(0,10000):
-#    for y in range(0,10000):
-#        print x,y
-#        if isAmicable(x,y):
-#            amicableList.append(y)
-#            print amicableList
+#print sum(amicableNumberTuple[0] for amicableNumberTuple in [(x,y) for x in range(1,10000) for y in range(1,10000) if isAmicable(x,y)]   )
 
-#print amicableList
+amicableList = []
 
-#print sum(amicableList)
+for x in range(0,1000):
+    for y in range(0,1000):
+        print x,y
+        if isAmicable(x,y):
+            amicableList.append(y)
+            print amicableList
 
+print amicableList
+
+print sum(amicableList)
+
+"""
 

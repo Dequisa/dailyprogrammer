@@ -25,5 +25,4 @@ for year in years:
         if date(year, month,1).weekday() == 6:
             finalCount += 1
 
-print years
 print finalCount
