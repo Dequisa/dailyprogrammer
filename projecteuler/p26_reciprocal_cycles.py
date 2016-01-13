@@ -15,19 +15,31 @@ Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be see
 
 Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
 """
-from __future__ import division
+import operator
+import time
+startTime = time.clock()
 
-def divide(numerator, denominator):
+denomToRepeatSizeDict = {}
+
+def repeatCheck(denom,quotient):
+    for x in range(6,int(len(quotient)/2) +1):
+        if quotient[-x:] == quotient[len(quotient)-(2*x):len(quotient)-x]:
+            denomToRepeatSizeDict[denom] = x
+            return True
+    return False
+
+def properDivide(num, denom):
     quotient = []
-    if numerator < denominator:
-        numerator = numerator * 10
-        while numerator != 0:
-            count = 0
-            while numerator >= denominator:
-                numerator = numerator - denominator
-                count += 1
-            quotient.append(count)
-        
+    updatingNum = num
+    while updatingNum != 0:
+        quotient.append(divmod(updatingNum*10,denom)[0])
+        updatingNum = (divmod(updatingNum*10,denom)[1]) 
+        if len(quotient) >= 30:
+            if repeatCheck(denom, quotient):
+                break
     return quotient
 
-print divide(1, 5)
+for x in range(1,1000):
+    properDivide(1,x)
+
+print max(denomToRepeatSizeDict.iteritems(), key = operator.itemgetter(1))[0], time.clock() - startTime
