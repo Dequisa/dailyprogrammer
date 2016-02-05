@@ -5,7 +5,7 @@ We shall say that an n-digit number is pandigital if it makes use of all the dig
 What is the largest n-digit pandigital prime that exists?
 
 """
-#runtime: 1345.62276 seconds.  Need to revisit
+#runtime: 9.656356 seconds.
 import time
 
 startTime = time.clock()
@@ -24,9 +24,10 @@ def pandigitalPrimesInRange(limit):
                 potentialPrimes[multipleOfPrime] = False
 
 primeList = []
-for prime in pandigitalPrimesInRange(1000000000):
+#Because sum(range(1,10)) is divisible by 3, we can't use 9 digit numbers
+#Because sum(range(1,9)) is divisible by 3, we can't use 8 digit numbers
+for prime in pandigitalPrimesInRange(10000000):
     primeList.append(prime)
-    print prime
 
 max = 0
 
