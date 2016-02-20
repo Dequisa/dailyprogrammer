@@ -19,7 +19,7 @@ letters = 'abcdefghijklmnopqrstuvwxyz'
 for x in xrange(1,27):
     alphaNumeric[letters[x-1]] = x
 
-alphaNumeric['"'] = 0
+#alphaNumeric['"'] = 0
 
 triangleSet = set()
 
@@ -35,9 +35,13 @@ def letterSum(word):
 def isTriangleWord(word):
     return letterSum(word) in triangleSet
 
-with open('wordList.txt') as wordList:
-    for word in wordList:
-        if isTriangleWord(word):
-            counter += 1
+with open('wordList.txt') as csvfile:
+    wordList = csv.reader(csvfile)
+    for list in wordList:
+        for word in list:
+            print word
+            if isTriangleWord(word):
+                counter += 1
+
 
 print counter
