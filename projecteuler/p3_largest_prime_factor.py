@@ -1,24 +1,37 @@
-primes = []
-prime_factors = []
+#encoding=utf-8
+"""
+The prime factors of 13195 are 5, 7, 13 and 29.
 
-for x in range(2, 100000):
-    isPrime = True
-    for y in range(2, x):
-        if x%y == 0:
-            isPrime = False
-    if isPrime:
-        primes.append(x)
+What is the largest prime factor of the number 600851475143 ?
+"""
+#Runs in 0.033505 seconds
+import time
 
-def primefactors(n):
-    for prime in primes:
-        print ("Looking at %d") %(prime)
+startTime = time.clock()
+
+def primesInRange(limit):
+    potentialPrimesList = [True] * limit
+    potentialPrimesList[0] = potentialPrimesList[1] = False
+    for index, isPrime in enumerate(potentialPrimesList):
+        if isPrime is True:
+            yield index
+            for x in xrange(index*2, limit, index):
+                potentialPrimesList[x] = False
+primeList = []
+for prime in primesInRange(100000):
+    primeList.append(prime)
+
+def biggestPrimeFactor(n):
+    biggestPrime = 0
+    for prime in primeList:
         if n%prime == 0:
-            prime_factors.append(prime)
             n = n/prime
-    return prime_factors
+            if prime > biggestPrime:
+                biggestPrime = prime
+    return biggestPrime
 
 
-print primefactors(600851475143)
+print biggestPrimeFactor(600851475143), time.clock()-startTime
 
 
 
