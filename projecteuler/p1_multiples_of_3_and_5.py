@@ -4,7 +4,8 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 """
-#Runtime = 0.000126 seconds
+#Runs in 0.000108 seconds
+>>>>>>> refactoring
 import time
 
 startTime = time.clock()

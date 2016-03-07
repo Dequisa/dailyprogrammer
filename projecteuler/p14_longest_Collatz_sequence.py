@@ -1,4 +1,6 @@
-"""The following iterative sequence is defined for the set of positive integers:
+#encoding=utf-8
+"""
+The following iterative sequence is defined for the set of positive integers:
 
 n -> n/2 (n is even)
 n -> 3n + 1 (n is odd)
@@ -10,29 +12,28 @@ It can be seen that this sequence (starting at 13 and finishing at 1) contains 1
 
 Which starting number, under one million, produces the longest chain?
 
-NOTE: Once the chain starts the terms are allowed to go above one million."""
+NOTE: Once the chain starts the terms are allowed to go above one million.
+"""
+#Runs in 28.070503 seconds
+import time
 
-collatzList = []
-max = 0
-maxNum = 2
+startTime = time.clock()
+max = (0,0)
 
-def getCollatz(n):
-    collatzList.append(n)
-    if n == 1:
-        return 1
-    if n%2 == 0:
-        return getCollatz(n/2)
-    if n%2 != 0:
-        return getCollatz(3*n + 1)
+def getCollatzCount(n):
+    count = 0
+    while n!=1:
+        if n%2==0:
+            n = n/2
+            count+=1
+        else:
+            n = 3*n + 1
+            count+=1
+    return count
 
-for x in range(2, 1000000):
-    getCollatz(x)
-    if len(collatzList) > max:
-        max = len(collatzList)
-        maxNum = x
-    collatzList = []
+for x in xrange(1, 1000000):
+    currentCount = getCollatzCount(x)
+    if currentCount > max[0]:
+        max = (currentCount, x)
 
-
-print max, maxNum
-
-
+print max[1], time.clock() - startTime

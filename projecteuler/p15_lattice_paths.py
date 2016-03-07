@@ -1,8 +1,76 @@
+#encoding=utf-8
 """
-
 Starting in the top left corner of a 2x2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
 
 How many such routes are there through a 20x20 grid?
+"""
+
+class Node(object):
+    def __init__(self, rightNode, downNode, x, y):
+        self.rightNode = rightNode
+        self.downNode = downNode
+        self.x = x
+        self.y = y
+
+
+size = 3
+
+grid = []
+
+for x in xrange(0,size):
+    column = []
+    for y in xrange(0,size):
+        column.append(Node(None,None,x,y))
+    grid.append(column)
+
+for column in xrange(0,size):
+    for nodeIndex in xrange(0, size-1):
+        grid[column][nodeIndex].rightNode = grid[column][nodeIndex+1]
+
+for column in xrange(0,size-1):
+    for nodeIndex in xrange(0, size):
+        grid[column][nodeIndex].downNode = grid[column + 1][nodeIndex]
+
+def dfs(node):
+    if node.rightNode == None and node.downNode == None:
+        return 1
+    if node.rightNode == None:
+        return 0
+    if node.downNode == None:
+        return 0
+    return dfs(node.rightNode) + dfs(node.downNode)
+
+print dfs(grid[0][0])
+
+"""
+size = 3
+
+grid = []
+for column in xrange(0,size):
+    row = []
+    for x in xrange(0,size):
+        row.append(Node(None, None))
+    for nodeIndex in xrange(0,size-1):
+        row[nodeIndex].rightNode = row[nodeIndex+1]
+    grid.append(row)
+
+for row in xrange(0,size-1):
+    for nodeIndex in xrange(0,size):
+        grid[row][nodeIndex].downNode = grid[row+1][nodeIndex]
+
+#visitedNodes
+
+def dfs(node):
+    print "recur!"
+    if node.rightNode == None and node.downNode == None:
+        print "i made it"
+        return 1
+    if node.rightNode == None or node.downNode == None:
+        return 0        
+    return dfs(node.rightNode) + dfs(node.downNode)
+
+print dfs(grid[0][0])
+"""
 
 """
 class Node(object):
@@ -62,7 +130,7 @@ def findPath(currentNode):
 findPath(startNode)
 
 print len(count)
-        
+"""        
 """
 node targetNode
 stack path

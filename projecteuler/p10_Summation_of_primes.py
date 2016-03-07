@@ -1,35 +1,24 @@
-primes = []
+#encoding=utf-8
+"""
+The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
 
-def primes_in_range(limit):
-    numbers_in_range = []
-    for x in range(2, limit + 1):
-        numbers_in_range.append((x, True))
+Find the sum of all the primes below two million.
+"""
+#Runs in 0.706214 seconds
+import time
 
-    prime_num = 2
-    index = 0
+startTime = time.clock()
 
-    while prime_num * prime_num < limit:
+def primesInRange(limit):
+    potentialPrimesList = [True] * limit
+    potentialPrimesList[0] = potentialPrimesList[1] = False
+    for index, isPrime in enumerate(potentialPrimesList):
+        if isPrime is True:
+            yield index
+            for x in xrange(index*2, limit, index):
+                potentialPrimesList[x] = False
+primeList = []
+for prime in primesInRange(2000000):
+    primeList.append(prime)
 
-        n = 1
-
-        while n * prime_num <= limit:
-
-            if numbers_in_range[prime_num * n - 2][0] != prime_num:
-                numbers_in_range[prime_num * n - 2] = (n*prime_num, False)
-            n += 1
-
-        for m in range(index + 1, len(numbers_in_range)):
-            if numbers_in_range[m][1] is True:
-                prime_num = numbers_in_range[m][0]
-                index = m
-                break
-
-    return numbers_in_range
-
-for tuple in primes_in_range(2000000):
-    if tuple[1] == True:
-        primes.append(tuple[0])
-
-
-print sum(primes)
-
+print sum(primeList), time.clock()-startTime

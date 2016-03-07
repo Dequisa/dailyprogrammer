@@ -1,3 +1,12 @@
+#encoding=utf-8
+"""
+Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+"""
+#Runs in 0.009387 seconds
+import time
+
+startTime = time.clock()
+
 bigNumString = """
 37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
@@ -118,7 +127,7 @@ for x in range(0, 100):
 for list in listOfLists:
     finalList.append(int(''.join(list)))
 
-print finalList[0] + finalList[1]
+print finalList[0] + finalList[1], time.clock()-startTime
 
 
 

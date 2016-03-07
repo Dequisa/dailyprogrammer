@@ -1,3 +1,11 @@
+#encoding=utf-8
+"""
+What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid below?
+"""
+#Runs in 0.001547 seconds
+#This code needs to be cleaned up significantly.  Should only be one function that also takes a direction as a parameter and should only loop through once.
+import time
+
 row1 = "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08"
 row2 = "49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00"
 row3 = "81 49 31 73 55 79 14 29 93 71 40 67 53 88 30 03 49 13 36 65"
@@ -19,6 +27,8 @@ row18 = "20 69 36 41 72 30 23 88 34 62 99 69 82 67 59 85 74 04 36 16"
 row19 = "20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54"
 row20 = "01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
 grid = [row1,row2,row3,row4,row5,row6,row7,row8,row9,row10,row11,row12,row13,row14,row15,row16,row17,row18,row19,row20]
+
+startTime = time.clock()
 
 largest_product = 0
 
@@ -65,4 +75,4 @@ for x in range(0,17):
         if checkdiagleft(grid[19-x],grid[18-x],grid[17-x],grid[16-x],y) >largest_product:
             largest_product = checkdiagleft(grid[19-x],grid[18-x],grid[17-x],grid[16-x],y)
 
-print largest_product
+print largest_product, time.clock()-startTime
