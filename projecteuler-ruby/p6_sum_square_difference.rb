@@ -10,7 +10,7 @@
 # Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
 def squareDiff(limit)
-  return (1..limit).to_a.inject( :+) ** 2 - (1..limit).to_a.map { |n| n ** 2 }.inject(:+)
+  (1..limit).to_a.inject( :+) ** 2 - (1..limit).to_a.map { |n| n ** 2 }.inject(:+)
 end
 
 puts squareDiff(100)
